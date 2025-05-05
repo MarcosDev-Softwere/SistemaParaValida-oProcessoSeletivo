@@ -1,0 +1,53 @@
+import java.util.Scanner; // Importa a classe Scanner para permitir a entrada de dados pelo usuário
+
+public class ProcessoSeletivo {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in); // Cria um objeto Scanner para ler a entrada do usuário
+
+        // Solicita o nome do candidato
+        System.out.println("Digite seu nome:");
+        String nome = scanner.nextLine(); // Lê o nome do candidato
+
+        // Solicita a idade do candidato
+        System.out.println("Digite sua idade:");
+        int idade = scanner.nextInt(); // Lê a idade do candidato
+
+        // Solicita os anos de experiência profissional do candidato
+        System.out.println("Digite sua experiência profissional (em anos):");
+        int experiencia = scanner.nextInt(); // Lê o tempo de experiência
+
+        // Solicita a formação acadêmica do candidato
+        System.out.println("Digite sua formação acadêmica (Graduação, Técnico, Nenhum):");
+        scanner.nextLine(); // Consumir quebra de linha pendente
+        String formacao = scanner.nextLine(); // Lê a formação acadêmica
+
+        try {
+            // Verifica se o candidato tem idade mínima para o processo seletivo
+            if (idade < 18) {
+                throw new IllegalArgumentException("Candidato deve ter 18 anos ou mais.");
+                // Lança uma exceção caso o candidato não tenha a idade mínima
+            }
+
+            // Verifica se o candidato tem pelo menos um ano de experiência
+            if (experiencia < 1) {
+                throw new IllegalArgumentException("Candidato deve ter pelo menos 1 ano de experiência.");
+                // Lança uma exceção caso o candidato não tenha experiência suficiente
+            }
+
+            // Verifica se a formação do candidato é válida
+            if (!formacao.equalsIgnoreCase("Graduação") && !formacao.equalsIgnoreCase("Técnico")) {
+                throw new IllegalArgumentException("Formação inválida. É necessário pelo menos um curso técnico.");
+                // Lança uma exceção caso a formação não atenda aos requisitos
+            }
+
+            // Se todas as validações forem atendidas, exibe uma mensagem de aprovação
+            System.out.println("Parabéns, " + nome + "! Você atende aos requisitos para o processo seletivo.");
+        } catch (IllegalArgumentException e) {
+            // Captura e exibe a mensagem de erro caso alguma validação falhe
+            System.out.println("Erro na validação: " + e.getMessage());
+        } finally {
+            // Fecha o Scanner para evitar possíveis vazamentos de recursos
+            scanner.close();
+        }
+    }
+}
