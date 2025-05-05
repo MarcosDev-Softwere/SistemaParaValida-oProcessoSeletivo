@@ -1,6 +1,6 @@
 # 🏆 Sistema de Validação de Processo Seletivo
 
-Bem-vindo ao meuSistema de Validação de Processo Seletivo.
+Bem-vindo ao Sistema de Validação de Processo Seletivo.
 
 ## 📌 Descrição
 Este sistema em Java realiza a validação de candidatos em um processo seletivo, verificando critérios como idade mínima, experiência profissional e formação acadêmica. Se o candidato atender aos requisitos, ele será aprovado na etapa inicial da seleção
